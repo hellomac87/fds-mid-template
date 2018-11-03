@@ -12,6 +12,7 @@
     "stage-0"
   ],
   "plugins": [
+    "transform-class-properties",
     "transform-runtime",
     "transform-async-to-generator",
     "transform-class-properties"
