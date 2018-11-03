@@ -16,22 +16,20 @@ document.querySelector('.login-form').addEventListener('submit', async (e) => {
     password
   });
 
-  await console.log(res.data.token);
-  // document.body.classList.add = 'login-after';
+  token = res.data.token; // 토큰 저장하기
+  await console.log(token); // 확인용
+  document.body.classList.add('login-after'); // body 태그에 class 추가하기 :: 로그인폼 hidden, list tag show, todo-input form show
 
-  // post 요청 보내기 :: async await 미사용
-
-  // axios.post('https://grave-staircase.glitch.me/users/login', {
-  //   // body
-  //   username,
-  //   password
-  // }).then(res => {
-  //   console.log(res.data.token);
-  //   token = res.data.token;
-  //   document.body.classList.add('login-after');
-  //   drawTodoList();
-  // });
-
+  // todo-list 를 그리는 함수를 호출한다.
+  //drawTodoList();
 });
+
+async function drawTodoList() {
+  const res = axios.get('https://grave-staircase.glitch.me/todos',{
+    headers: {"Authorization" : "Bearer " + token},
+  });
+
+  await console.log(res);
+}
 
 
