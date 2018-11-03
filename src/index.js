@@ -16,26 +16,21 @@ document.querySelector('.login-form').addEventListener('submit', async (e) => {
   });
 
   await console.log(res.data.token);
+  // document.body.classList.add = 'login-after';
 
   // post 요청 보내기 :: async await 미사용
-  /*
-  axios.post('https://grave-staircase.glitch.me/users/login', {
-    // body
-    username,
-    password
-  }).then(res => {
-    token = res.data.token;
-    console.log(token);
-  });
-  */
+
+  // axios.post('https://grave-staircase.glitch.me/users/login', {
+  //   // body
+  //   username,
+  //   password
+  // }).then(res => {
+  //   console.log(res.data.token);
+  //   token = res.data.token;
+  //   document.body.classList.add('login-after');
+  //   drawTodoList();
+  // });
+
 });
 
-/*
-// db 목록 요청 보내기
-axios.get('https://grave-staircase.glitch.me/db')
-  .then(res => {
-    const todos = res.data.todos;
-    console.log(todos);
-  });
-*/
 
