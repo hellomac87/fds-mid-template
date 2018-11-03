@@ -1,3 +1,12 @@
-document.querySelector('h1').addEventListener('click', e => {
-  alert('Hello World!');
-});
+const axios = require('axios');
+
+
+
+/*
+axios.get('https://grave-staircase.glitch.me/db')
+  .then(res => {
+    const todos = res.data.todos;
+    console.log(todos);
+  });
+*/
+
