@@ -24,22 +24,49 @@ document.querySelector('.login-form').addEventListener('submit', async (e) => {
   await drawTodoList();
 });
 
+
+// drawTodoList function
 const drawTodoList = async () => {
+
   const res = await axios.get('https://grave-staircase.glitch.me/todos',{
     headers: {"Authorization" : "Bearer " + token},
   });
 
   const todos = res.data;
+  document.querySelector('.todo-list').innerHTML = '';
 
   todos.forEach(todo => {
+    // create list element
     const listItemElem = document.createElement('li');
     listItemElem.textContent = todo.body;
 
+    // create delete btn element
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = 'delete';
+
+    // append delete button element in listItemElem
+    listItemElem.appendChild(deleteButton);
+
+    // append list element
     const listElem = document.querySelector('.todo-list');
     listElem.appendChild(listItemElem);
   });
 
-  console.log(todos);
+  console.log(todos); // data check
 }
 
+document.querySelector('.todo-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
 
+  const body = e.target.elements.todoInput.value;
+
+  const res = await axios.post('https://grave-staircase.glitch.me/todos',{
+    body,
+    complete: false
+  },{
+    headers: { "Authorization": "Bearer " + token },
+  });
+
+  console.log(res.data);
+  drawTodoList();
+})

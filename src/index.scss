@@ -24,7 +24,7 @@ button{
   background: $main-color;
 }
 .wrap{
-  width:300px;
+  width:500px;
   margin:50px auto;
 }
 
@@ -50,5 +50,12 @@ h1{
   li{
     font-size: 1.4rem;
     margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    button{
+      width:80px;
+      font-size:1.2rem;
+    }
   }
 }
