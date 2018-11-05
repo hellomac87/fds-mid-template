@@ -1,4 +1,4 @@
-import 'babel-polyfill';
+import "@babel/polyfill";
 import axios from 'axios';
 let token; // 서버로부터 응답받은 토큰 저장 변수
 
