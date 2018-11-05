@@ -44,3 +44,11 @@ h1{
     display: none;
   }
 }
+.todo-list{
+  list-style: none;
+  margin-bottom:30px;
+  li{
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+  }
+}
