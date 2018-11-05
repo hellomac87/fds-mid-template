@@ -2,6 +2,10 @@ import "@babel/polyfill";
 import axios from 'axios';
 let token; // 서버로부터 응답받은 토큰 저장 변수
 
+const api = axios.create({
+  baseURL: 'https://grave-staircase.glitch.me/'
+})
+
 // 로그인 요청 보내기 :: 서버로부터 토큰 받기
 document.querySelector('.login-form').addEventListener('submit', async (e) => {
   e.preventDefault(); // 기본 form 태그의 submit 이벤트를 막아준다.
@@ -10,7 +14,7 @@ document.querySelector('.login-form').addEventListener('submit', async (e) => {
   const password = e.target.elements.password.value;
 
   // post 요청 보내기 :: async await 사용
-  const res = await axios.post('https://grave-staircase.glitch.me/users/login',{
+  const res = await api.post('users/login',{
     // body 정보
     username,
     password
@@ -28,7 +32,7 @@ document.querySelector('.login-form').addEventListener('submit', async (e) => {
 // drawTodoList function
 const drawTodoList = async () => {
 
-  const res = await axios.get('https://grave-staircase.glitch.me/todos',{
+  const res = await api.get('todos',{
     headers: {"Authorization" : "Bearer " + token},
   });
 
@@ -60,7 +64,7 @@ document.querySelector('.todo-form').addEventListener('submit', async (e) => {
 
   const body = e.target.elements.todoInput.value;
 
-  const res = await axios.post('https://grave-staircase.glitch.me/todos',{
+  const res = await api.post('todos',{
     body,
     complete: false
   },{
